@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
 	FILE* infile = fopen(argv[1], "r");
 	char* devNameC = new char;
-	while (fscanf(infile, "%ms", devNameC)) {
+	while (fscanf(infile, "%ms", &devNameC)) {
 		string devName(devNameC);
 
 		if (devName == "cpu") {

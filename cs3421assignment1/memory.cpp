@@ -25,8 +25,8 @@ void Memory::Parse(FILE* infile)
 	else if (command == "set") {
 		unsigned int* address = new unsigned int;
 		unsigned int* count = new unsigned int;
-		fscanf(infile, "%X", &address);
-		fscanf(infile, "%X", &count);
+		fscanf(infile, "%X", address);
+		fscanf(infile, "%X", count);
 		set(*address, *count, infile);
 	}
 }
@@ -106,7 +106,7 @@ void Memory::set(uint8_t start, uint8_t count, FILE* infile)
 	uint8_t* address = memPtr + start;
 	for (uint8_t i = 0; i < count; i++) {
 		uint8_t* setByte;
-		fscanf(infile, "%X", &setByte);
+		fscanf(infile, "%X", setByte);
 		*address = *setByte;
 		address++;
 	}
