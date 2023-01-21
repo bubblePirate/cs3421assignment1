@@ -105,7 +105,7 @@ void Memory::set(uint8_t start, uint8_t count, FILE* infile)
 {
 	uint8_t* address = memPtr + start;
 	for (uint8_t i = 0; i < count; i++) {
-		uint8_t* setByte;
+		unsigned int* setByte = new unsigned int;
 		fscanf(infile, "%X", setByte);
 		*address = *setByte;
 		address++;
