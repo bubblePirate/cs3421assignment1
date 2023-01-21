@@ -8,15 +8,15 @@ using namespace std;
 
 void Clock::Parse(FILE* infile)
 {
-	char* commandC;
-	fscanf(infile, "%s", &commandC);
+	char* commandC = new char;
+	fscanf(infile, "%s", commandC);
 	string command(commandC);
 	free(commandC);
 	if (command == "reset")
 		reset();
 	else if (command == "tick") {
-		int* ticks;
-		fscanf(infile, "%d", &ticks);
+		int* ticks = new int;
+		fscanf(infile, "%d", ticks);
 		tick(*ticks);
 		free(ticks);
 	}

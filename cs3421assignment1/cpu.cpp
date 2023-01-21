@@ -5,20 +5,20 @@ using namespace std;
 
 void CPU::Parse(FILE* infile)
 {
-	char* commandC;
-	fscanf(infile, "%s", &commandC);
+	char* commandC = new char;
+	fscanf(infile, "%s", commandC);
 	string command(commandC);
 	free(commandC);
 	if (command == "dump")
 		dump();
 	else if (command == "set") {
-		fscanf(infile, "%s", &commandC);
-		char* regChar;
-		fscanf(infile, "%c", &regChar); //scans in R
-		fscanf(infile, "%c", &regChar);
+		char* regChar = new char;
+		fscanf(infile, "%s", regChar);
+		fscanf(infile, "%c", regChar); //scans in R
+		fscanf(infile, "%c", regChar);
 		int reg = *regChar - 'A';
-		uint8_t* inByte;
-		fscanf(infile, "%x", &inByte);
+		uint8_t* inByte = new uint8_t;
+		fscanf(infile, "%x", inByte);
 		set(reg, *inByte);
 	}
 	else {

@@ -3,31 +3,36 @@
 using namespace std;
 void Memory::Parse(FILE* infile)
 {
-	char* commandC;
-	fscanf(infile, "%s", &commandC);
+	char* commandC = new char;
+	fscanf(infile, "%s", commandC);
 	string command(commandC);
 	free(commandC);
 	if (command == "create") {
-		uint8_t* size;
-		fscanf(infile, "%X", &size);
+		uint8_t* size = new uint8_t;
+		fscanf(infile, "%X", size);
 		create(*size);
+		free(size);
 	}
 	else if (command == "reset") {
 		reset();
 	}
 	else if (command == "dump") {
-		uint8_t* address;
-		fscanf(infile, "%X", &address);
-		uint8_t* count;
-		fscanf(infile, "%X", &count);
+		uint8_t* address = new uint8_t;
+		fscanf(infile, "%X", address);
+		uint8_t* count = new uint8_t;
+		fscanf(infile, "%X", count);
 		dump(*address, *count);
+		free(address);
+		free(count);
 	}
 	else if (command == "set") {
-		uint8_t* address;
-		uint8_t* count;
+		uint8_t* address = new uint8_t;
+		uint8_t* count = new uint8_t;
 		fscanf(infile, "%X", &address);
 		fscanf(infile, "%X", &count);
 		set(*address, *count, infile);
+		free(address);
+		free(count);
 	}
 }
 
