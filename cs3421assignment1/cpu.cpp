@@ -17,7 +17,7 @@ void CPU::Parse(FILE* infile)
 		fscanf(infile, "%c", regChar); //scans in R
 		fscanf(infile, "%c", regChar);
 		int reg = *regChar - 'A';
-		uint8_t* inByte = new uint8_t;
+		unsigned int* inByte = new unsigned int;
 		fscanf(infile, "%x", inByte);
 		set(reg, *inByte);
 	}

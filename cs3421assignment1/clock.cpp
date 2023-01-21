@@ -1,6 +1,3 @@
-#include <fstream>
-#include <string>
-#include <stdint.h>
 #include "clock.h"
 #include "cpu.h"
 
@@ -11,14 +8,12 @@ void Clock::Parse(FILE* infile)
 	char* commandC = new char;
 	fscanf(infile, "%s", commandC);
 	string command(commandC);
-	free(commandC);
 	if (command == "reset")
 		reset();
 	else if (command == "tick") {
 		int* ticks = new int;
 		fscanf(infile, "%d", ticks);
 		tick(*ticks);
-		free(ticks);
 	}
 	else {
 		dump();

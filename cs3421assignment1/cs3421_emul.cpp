@@ -1,13 +1,9 @@
-#ifdef _MSC_VER
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
 #include "memory.h"
 #include "clock.h"
 #include "cpu.h"
 
 #include <fstream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -19,10 +15,9 @@ int main(int argc, char* argv[])
 	Clock& clock = getClock();
 
 	FILE* infile = fopen(argv[1], "r");
-	char* devNameC;
-	while (fscanf(infile, "%ms", &devNameC)) {
+	char* devNameC = new char;
+	while (fscanf(infile, "%ms", devNameC)) {
 		string devName(devNameC);
-		free(devNameC);
 
 		if (devName == "cpu") {
 			cpu.Parse(infile);

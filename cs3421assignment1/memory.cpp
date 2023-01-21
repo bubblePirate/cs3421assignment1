@@ -8,35 +8,30 @@ void Memory::Parse(FILE* infile)
 	string command(commandC);
 	free(commandC);
 	if (command == "create") {
-		uint8_t* size = new uint8_t;
+		unsigned int* size = new unsigned int;
 		fscanf(infile, "%X", size);
 		create(*size);
-		free(size);
 	}
 	else if (command == "reset") {
 		reset();
 	}
 	else if (command == "dump") {
-		uint8_t* address = new uint8_t;
+		unsigned int* address = new unsigned int;
 		fscanf(infile, "%X", address);
-		uint8_t* count = new uint8_t;
+		unsigned int* count = new unsigned int;
 		fscanf(infile, "%X", count);
 		dump(*address, *count);
-		free(address);
-		free(count);
 	}
 	else if (command == "set") {
-		uint8_t* address = new uint8_t;
-		uint8_t* count = new uint8_t;
+		unsigned int* address = new unsigned int;
+		unsigned int* count = new unsigned int;
 		fscanf(infile, "%X", &address);
 		fscanf(infile, "%X", &count);
 		set(*address, *count, infile);
-		free(address);
-		free(count);
 	}
 }
 
-void Memory::create(uint8_t size)
+void Memory::create(unsigned int size)
 {
 	uint8_t* memStart = memPtr + memSize;
 	memStart = new uint8_t[size];

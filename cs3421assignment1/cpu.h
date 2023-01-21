@@ -1,5 +1,5 @@
 #include <fstream>
-#include <string>
+#include <cstring>
 #include <stdint.h>
 
 class CPU 

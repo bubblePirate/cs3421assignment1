@@ -1,3 +1,7 @@
+#include <fstream>
+#include <string>
+#include <stdint.h>
+
 class Clock
 {
 public:

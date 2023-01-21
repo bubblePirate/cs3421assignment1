@@ -1,12 +1,12 @@
 #include <fstream>
-#include <string>
+#include <cstring>
 #include <stdint.h>
 
 class Memory
 {
 public:
 	void Parse(FILE* infile);
-	void create(uint8_t size);
+	void create(unsigned int size);
 	void reset();
 	void dump(uint8_t start, uint8_t count);
 	void set(uint8_t start, uint8_t count, FILE* infile);
