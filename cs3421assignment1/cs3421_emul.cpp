@@ -10,11 +10,11 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	CPU& cpu = getCPU();
-
 	Memory& mem = getMemory();
 	Clock& clock = getClock();
 
-	FILE* infile = fopen(argv[1], "r");
+	FILE* infile;
+	fopen_s(&infile, argv[1], "r");
 	char* devNameC = new char;
 	while (fscanf(infile, "%ms", &devNameC)) {
 		string devName(devNameC);

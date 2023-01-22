@@ -11,7 +11,7 @@ public:
 	void dump();
 
 private:
-	uint8_t count;
+	uint16_t count;
 };
 
 Clock& getClock();

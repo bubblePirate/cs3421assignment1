@@ -15,7 +15,7 @@ public:
 
 private:
 	uint8_t* memPtr;
-	uint8_t memSize;
+	unsigned int memSize;
 
 };
 
